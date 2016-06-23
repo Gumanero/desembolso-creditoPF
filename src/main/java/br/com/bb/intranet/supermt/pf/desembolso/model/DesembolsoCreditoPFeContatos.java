@@ -1,6 +1,7 @@
 package br.com.bb.intranet.supermt.pf.desembolso.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,11 +23,11 @@ public class DesembolsoCreditoPFeContatos implements Serializable {
 	private Long id;
 	
 	@Column(name="grupo", length = 2)
-	private String grupo;
+	private char grupo;
 	
 	@NotEmpty
 	@Size(max = 5)
-	@Column( length = 5)
+	@Column(nullable = false, length = 5)
 	private String prefixoSuperintendencia;
 	
 	@NotEmpty
@@ -36,7 +37,7 @@ public class DesembolsoCreditoPFeContatos implements Serializable {
 	
 	@NotEmpty
 	@Size(max = 5)
-	@Column( length = 5)
+	@Column(nullable = false, length = 5)
 	private String prefixoRegional;
 	
 	@NotEmpty
@@ -46,7 +47,7 @@ public class DesembolsoCreditoPFeContatos implements Serializable {
 	
 	@NotEmpty
 	@Size(max = 5)
-	@Column( length = 5)
+	@Column(nullable = false, length = 5)
 	private String prefixoAgencia;
 	
 	@NotEmpty
@@ -55,39 +56,39 @@ public class DesembolsoCreditoPFeContatos implements Serializable {
 	private String nomeAgencia;
 	
 	
-	@Column(length = 150)
-	private String orcamentoPropostoAcumulado;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal orcamentoPropostoAcumulado;
 	
-	@Column(length = 50)
-	private String realizadoAtual;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal realizadoAtual;
 	
-	@Column(length = 50)
-	private String percentualAtingimentoUm;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal percentualAtingimentoUm;
 	
-	@Column(length = 50)
-	private String realizadoDmenosUm;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal realizadoDmenosUm;
 	
-	@Column(length = 50)
-	private String necessidadeDiaDmenosUm;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal necessidadeDiaDmenosUm;
 	
-	@Column(length = 50)
-	private String metaContatosAcumulada;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal metaContatosAcumulada;
 	
-	@Column(length = 50)
-	private String realizadoContatosMes;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal realizadoContatosMes;
 	
-	@Column(length = 50)
-	private String percentualAtingimentoContatos;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal percentualAtingimentoContatos;
 	
-	@Column(length = 50)
-	private String contatosDmenosUm;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal contatosDmenosUm;
 	
-	@Column(length = 50)
-	private String contatosDmenosDois;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal contatosDmenosDois;
 	
 	@NotEmpty
 	@Size(max = 5)
-	@Column( length = 5)
+	@Column(nullable = false, length = 5)
 	private String prefixoRepete;
 	
 	@NotEmpty
@@ -96,254 +97,252 @@ public class DesembolsoCreditoPFeContatos implements Serializable {
 	private String agenciaRepete;
 	
 	@Column(length = 10)
-	private String codigoCarteira;
+	private Integer codigoCarteira;
 	
-	@Column(length = 80)
+	@Column(nullable = false, length = 80)
 	private String carteira;
 	
-	@Column(length = 50)
-	private String orcamentoProporcionalAcumuladoDois;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal orcamentoProporcionalAcumuladoDois;
 	
-	@Column(length = 50)
-	private String realizadoAtualDois;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal realizadoAtualDois;
 	
-	@Column(length = 50)
-	private String percentualAgintimentoDois;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal percentualAgintimentoDois;
 	
-	@Column(length = 50)
-	private String metaContatosAcumuladaDois;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal metaContatosAcumuladaDois;
 	
-	@Column(length = 50)
-	private String realizadoContatosMesDois;
+	@Column(precision = 30, scale = 12)
+	private BigDecimal realizadoContatosMesDois;
 	
 	@Column(length = 5)
 	private Integer percentualAtingimentoContatosDois;
 
-    public Long getId() {
-        return id;
-    }
+	protected Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	protected void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getGrupo() {
-        return grupo;
-    }
+	protected char getGrupo() {
+		return grupo;
+	}
 
-    public void setGrupo(String grupo) {
-        this.grupo = grupo;
-    }
+	protected void setGrupo(char grupo) {
+		this.grupo = grupo;
+	}
 
-    public String getPrefixoSuperintendencia() {
-        return prefixoSuperintendencia;
-    }
+	protected String getPrefixoSuperintendencia() {
+		return prefixoSuperintendencia;
+	}
 
-    public void setPrefixoSuperintendencia(String prefixoSuperintendencia) {
-        this.prefixoSuperintendencia = prefixoSuperintendencia;
-    }
+	protected void setPrefixoSuperintendencia(String prefixoSuperintendencia) {
+		this.prefixoSuperintendencia = prefixoSuperintendencia;
+	}
 
-    public String getNomeSuperintendencia() {
-        return nomeSuperintendencia;
-    }
+	protected String getNomeSuperintendencia() {
+		return nomeSuperintendencia;
+	}
 
-    public void setNomeSuperintendencia(String nomeSuperintendencia) {
-        this.nomeSuperintendencia = nomeSuperintendencia;
-    }
+	protected void setNomeSuperintendencia(String nomeSuperintendencia) {
+		this.nomeSuperintendencia = nomeSuperintendencia;
+	}
 
-    public String getPrefixoRegional() {
-        return prefixoRegional;
-    }
+	protected String getPrefixoRegional() {
+		return prefixoRegional;
+	}
 
-    public void setPrefixoRegional(String prefixoRegional) {
-        this.prefixoRegional = prefixoRegional;
-    }
+	protected void setPrefixoRegional(String prefixoRegional) {
+		this.prefixoRegional = prefixoRegional;
+	}
 
-    public String getNomeRegional() {
-        return nomeRegional;
-    }
+	protected String getNomeRegional() {
+		return nomeRegional;
+	}
 
-    public void setNomeRegional(String nomeRegional) {
-        this.nomeRegional = nomeRegional;
-    }
+	protected void setNomeRegional(String nomeRegional) {
+		this.nomeRegional = nomeRegional;
+	}
 
-    public String getPrefixoAgencia() {
-        return prefixoAgencia;
-    }
+	protected String getPrefixoAgencia() {
+		return prefixoAgencia;
+	}
 
-    public void setPrefixoAgencia(String prefixoAgencia) {
-        this.prefixoAgencia = prefixoAgencia;
-    }
+	protected void setPrefixoAgencia(String prefixoAgencia) {
+		this.prefixoAgencia = prefixoAgencia;
+	}
 
-    public String getNomeAgencia() {
-        return nomeAgencia;
-    }
+	protected String getNomeAgencia() {
+		return nomeAgencia;
+	}
 
-    public void setNomeAgencia(String nomeAgencia) {
-        this.nomeAgencia = nomeAgencia;
-    }
+	protected void setNomeAgencia(String nomeAgencia) {
+		this.nomeAgencia = nomeAgencia;
+	}
 
-    public String getOrcamentoPropostoAcumulado() {
-        return orcamentoPropostoAcumulado;
-    }
+	protected BigDecimal getOrcamentoPropostoAcumulado() {
+		return orcamentoPropostoAcumulado;
+	}
 
-    public void setOrcamentoPropostoAcumulado(String orcamentoPropostoAcumulado) {
-        this.orcamentoPropostoAcumulado = orcamentoPropostoAcumulado;
-    }
+	protected void setOrcamentoPropostoAcumulado(BigDecimal orcamentoPropostoAcumulado) {
+		this.orcamentoPropostoAcumulado = orcamentoPropostoAcumulado;
+	}
 
-    public String getRealizadoAtual() {
-        return realizadoAtual;
-    }
+	protected BigDecimal getRealizadoAtual() {
+		return realizadoAtual;
+	}
 
-    public void setRealizadoAtual(String realizadoAtual) {
-        this.realizadoAtual = realizadoAtual;
-    }
+	protected void setRealizadoAtual(BigDecimal realizadoAtual) {
+		this.realizadoAtual = realizadoAtual;
+	}
 
-    public String getPercentualAtingimentoUm() {
-        return percentualAtingimentoUm;
-    }
+	protected BigDecimal getPercentualAtingimentoUm() {
+		return percentualAtingimentoUm;
+	}
 
-    public void setPercentualAtingimentoUm(String percentualAtingimentoUm) {
-        this.percentualAtingimentoUm = percentualAtingimentoUm;
-    }
+	protected void setPercentualAtingimentoUm(BigDecimal percentualAtingimentoUm) {
+		this.percentualAtingimentoUm = percentualAtingimentoUm;
+	}
 
-    public String getRealizadoDmenosUm() {
-        return realizadoDmenosUm;
-    }
+	protected BigDecimal getRealizadoDmenosUm() {
+		return realizadoDmenosUm;
+	}
 
-    public void setRealizadoDmenosUm(String realizadoDmenosUm) {
-        this.realizadoDmenosUm = realizadoDmenosUm;
-    }
+	protected void setRealizadoDmenosUm(BigDecimal realizadoDmenosUm) {
+		this.realizadoDmenosUm = realizadoDmenosUm;
+	}
 
-    public String getNecessidadeDiaDmenosUm() {
-        return necessidadeDiaDmenosUm;
-    }
+	protected BigDecimal getNecessidadeDiaDmenosUm() {
+		return necessidadeDiaDmenosUm;
+	}
 
-    public void setNecessidadeDiaDmenosUm(String necessidadeDiaDmenosUm) {
-        this.necessidadeDiaDmenosUm = necessidadeDiaDmenosUm;
-    }
+	protected void setNecessidadeDiaDmenosUm(BigDecimal necessidadeDiaDmenosUm) {
+		this.necessidadeDiaDmenosUm = necessidadeDiaDmenosUm;
+	}
 
-    public String getMetaContatosAcumulada() {
-        return metaContatosAcumulada;
-    }
+	protected BigDecimal getMetaContatosAcumulada() {
+		return metaContatosAcumulada;
+	}
 
-    public void setMetaContatosAcumulada(String metaContatosAcumulada) {
-        this.metaContatosAcumulada = metaContatosAcumulada;
-    }
+	protected void setMetaContatosAcumulada(BigDecimal metaContatosAcumulada) {
+		this.metaContatosAcumulada = metaContatosAcumulada;
+	}
 
-    public String getRealizadoContatosMes() {
-        return realizadoContatosMes;
-    }
+	protected BigDecimal getRealizadoContatosMes() {
+		return realizadoContatosMes;
+	}
 
-    public void setRealizadoContatosMes(String realizadoContatosMes) {
-        this.realizadoContatosMes = realizadoContatosMes;
-    }
+	protected void setRealizadoContatosMes(BigDecimal realizadoContatosMes) {
+		this.realizadoContatosMes = realizadoContatosMes;
+	}
 
-    public String getPercentualAtingimentoContatos() {
-        return percentualAtingimentoContatos;
-    }
+	protected BigDecimal getPercentualAtingimentoContatos() {
+		return percentualAtingimentoContatos;
+	}
 
-    public void setPercentualAtingimentoContatos(String percentualAtingimentoContatos) {
-        this.percentualAtingimentoContatos = percentualAtingimentoContatos;
-    }
+	protected void setPercentualAtingimentoContatos(BigDecimal percentualAtingimentoContatos) {
+		this.percentualAtingimentoContatos = percentualAtingimentoContatos;
+	}
 
-    public String getContatosDmenosUm() {
-        return contatosDmenosUm;
-    }
+	protected BigDecimal getContatosDmenosUm() {
+		return contatosDmenosUm;
+	}
 
-    public void setContatosDmenosUm(String contatosDmenosUm) {
-        this.contatosDmenosUm = contatosDmenosUm;
-    }
+	protected void setContatosDmenosUm(BigDecimal contatosDmenosUm) {
+		this.contatosDmenosUm = contatosDmenosUm;
+	}
 
-    public String getContatosDmenosDois() {
-        return contatosDmenosDois;
-    }
+	protected BigDecimal getContatosDmenosDois() {
+		return contatosDmenosDois;
+	}
 
-    public void setContatosDmenosDois(String contatosDmenosDois) {
-        this.contatosDmenosDois = contatosDmenosDois;
-    }
+	protected void setContatosDmenosDois(BigDecimal contatosDmenosDois) {
+		this.contatosDmenosDois = contatosDmenosDois;
+	}
 
-    public String getPrefixoRepete() {
-        return prefixoRepete;
-    }
+	protected String getPrefixoRepete() {
+		return prefixoRepete;
+	}
 
-    public void setPrefixoRepete(String prefixoRepete) {
-        this.prefixoRepete = prefixoRepete;
-    }
+	protected void setPrefixoRepete(String prefixoRepete) {
+		this.prefixoRepete = prefixoRepete;
+	}
 
-    public String getAgenciaRepete() {
-        return agenciaRepete;
-    }
+	protected String getAgenciaRepete() {
+		return agenciaRepete;
+	}
 
-    public void setAgenciaRepete(String agenciaRepete) {
-        this.agenciaRepete = agenciaRepete;
-    }
+	protected void setAgenciaRepete(String agenciaRepete) {
+		this.agenciaRepete = agenciaRepete;
+	}
 
-    public String getCodigoCarteira() {
-        return codigoCarteira;
-    }
+	protected Integer getCodigoCarteira() {
+		return codigoCarteira;
+	}
 
-    public void setCodigoCarteira(String codigoCarteira) {
-        this.codigoCarteira = codigoCarteira;
-    }
+	protected void setCodigoCarteira(Integer codigoCarteira) {
+		this.codigoCarteira = codigoCarteira;
+	}
 
-    public String getCarteira() {
-        return carteira;
-    }
+	protected String getCarteira() {
+		return carteira;
+	}
 
-    public void setCarteira(String carteira) {
-        this.carteira = carteira;
-    }
+	protected void setCarteira(String carteira) {
+		this.carteira = carteira;
+	}
 
-    public String getOrcamentoProporcionalAcumuladoDois() {
-        return orcamentoProporcionalAcumuladoDois;
-    }
+	protected BigDecimal getOrcamentoProporcionalAcumuladoDois() {
+		return orcamentoProporcionalAcumuladoDois;
+	}
 
-    public void setOrcamentoProporcionalAcumuladoDois(String orcamentoProporcionalAcumuladoDois) {
-        this.orcamentoProporcionalAcumuladoDois = orcamentoProporcionalAcumuladoDois;
-    }
+	protected void setOrcamentoProporcionalAcumuladoDois(BigDecimal orcamentoProporcionalAcumuladoDois) {
+		this.orcamentoProporcionalAcumuladoDois = orcamentoProporcionalAcumuladoDois;
+	}
 
-    public String getRealizadoAtualDois() {
-        return realizadoAtualDois;
-    }
+	protected BigDecimal getRealizadoAtualDois() {
+		return realizadoAtualDois;
+	}
 
-    public void setRealizadoAtualDois(String realizadoAtualDois) {
-        this.realizadoAtualDois = realizadoAtualDois;
-    }
+	protected void setRealizadoAtualDois(BigDecimal realizadoAtualDois) {
+		this.realizadoAtualDois = realizadoAtualDois;
+	}
 
-    public String getPercentualAgintimentoDois() {
-        return percentualAgintimentoDois;
-    }
+	protected BigDecimal getPercentualAgintimentoDois() {
+		return percentualAgintimentoDois;
+	}
 
-    public void setPercentualAgintimentoDois(String percentualAgintimentoDois) {
-        this.percentualAgintimentoDois = percentualAgintimentoDois;
-    }
+	protected void setPercentualAgintimentoDois(BigDecimal percentualAgintimentoDois) {
+		this.percentualAgintimentoDois = percentualAgintimentoDois;
+	}
 
-    public String getMetaContatosAcumuladaDois() {
-        return metaContatosAcumuladaDois;
-    }
+	protected BigDecimal getMetaContatosAcumuladaDois() {
+		return metaContatosAcumuladaDois;
+	}
 
-    public void setMetaContatosAcumuladaDois(String metaContatosAcumuladaDois) {
-        this.metaContatosAcumuladaDois = metaContatosAcumuladaDois;
-    }
+	protected void setMetaContatosAcumuladaDois(BigDecimal metaContatosAcumuladaDois) {
+		this.metaContatosAcumuladaDois = metaContatosAcumuladaDois;
+	}
 
-    public String getRealizadoContatosMesDois() {
-        return realizadoContatosMesDois;
-    }
+	protected BigDecimal getRealizadoContatosMesDois() {
+		return realizadoContatosMesDois;
+	}
 
-    public void setRealizadoContatosMesDois(String realizadoContatosMesDois) {
-        this.realizadoContatosMesDois = realizadoContatosMesDois;
-    }
+	protected void setRealizadoContatosMesDois(BigDecimal realizadoContatosMesDois) {
+		this.realizadoContatosMesDois = realizadoContatosMesDois;
+	}
 
-    public Integer getPercentualAtingimentoContatosDois() {
-        return percentualAtingimentoContatosDois;
-    }
+	protected Integer getPercentualAtingimentoContatosDois() {
+		return percentualAtingimentoContatosDois;
+	}
 
-    public void setPercentualAtingimentoContatosDois(Integer percentualAtingimentoContatosDois) {
-        this.percentualAtingimentoContatosDois = percentualAtingimentoContatosDois;
-    }
-
-	
+	protected void setPercentualAtingimentoContatosDois(Integer percentualAtingimentoContatosDois) {
+		this.percentualAtingimentoContatosDois = percentualAtingimentoContatosDois;
+	}
 
 	@Override
 	public int hashCode() {

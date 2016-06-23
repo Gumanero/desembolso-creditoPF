@@ -5,7 +5,7 @@
  */
 package br.com.bb.intranet.supermt.pf.desembolso.repository;
 
-import br.com.bb.intranet.supermt.pf.desembolso.model.DesembolsoCreditoPFeContatos;
+import br.com.bb.intranet.supermt.pf.desembolso.model.Desembolso;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;
@@ -19,30 +19,29 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author Olliver
  */
-public class Acessos implements Serializable {
+public class Desembolsos implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private EntityManager manager;
 
     @Inject
-    public Acessos(EntityManager manager) {
+    public Desembolsos(EntityManager manager) {
         this.manager = manager;
     }
 
-    public DesembolsoCreditoPFeContatos porId(Long id) {
-        return manager.find(DesembolsoCreditoPFeContatos.class, id);
+    public Desembolso porId(Long id) {
+        return manager.find(Desembolso.class, id);
     }
 
-    public List<DesembolsoCreditoPFeContatos> todas() {
-        TypedQuery<DesembolsoCreditoPFeContatos> query = manager.createQuery(
-                "from DesembolsoCreditoPFeContatos", DesembolsoCreditoPFeContatos.class);
+    public List<Desembolso> todas() {
+        TypedQuery<Desembolso> query = manager.createQuery("from Desembolso", Desembolso.class);
 
         return query.getResultList();
     }
 
     
-    public List<DesembolsoCreditoPFeContatos> porGrupo(String grupo) {
+    public List<Desembolso> porGrupo(String grupo) {
         Criteria criteria = criarCriteria();
 
         criteria.add(Restrictions.ilike("grupo", grupo));
@@ -50,15 +49,15 @@ public class Acessos implements Serializable {
         return criteria.list();
     }
 
-    public void adicionar(DesembolsoCreditoPFeContatos valor) {
+    public void adicionar(Desembolso valor) {
         this.manager.persist(valor);
     }
 
-    public void guardar(DesembolsoCreditoPFeContatos valor) {
+    public void guardar(Desembolso valor) {
         this.manager.merge(valor);
     }
 
-    public void remover(DesembolsoCreditoPFeContatos valor) {
+    public void remover(Desembolso valor) {
         this.manager.remove(valor);
     }
 
@@ -67,7 +66,7 @@ public class Acessos implements Serializable {
      */
     private Criteria criarCriteria() {
         Session session = manager.unwrap(Session.class);
-        Criteria criteria = session.createCriteria(DesembolsoCreditoPFeContatos.class);
+        Criteria criteria = session.createCriteria(Desembolso.class);
 
         return criteria;
     }

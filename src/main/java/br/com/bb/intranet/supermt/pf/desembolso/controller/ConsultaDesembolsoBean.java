@@ -5,8 +5,8 @@
  */
 package br.com.bb.intranet.supermt.pf.desembolso.controller;
 
-import br.com.bb.intranet.supermt.pf.desembolso.model.DesembolsoCreditoPFeContatos;
-import br.com.bb.intranet.supermt.pf.desembolso.repository.Acessos;
+import br.com.bb.intranet.supermt.pf.desembolso.model.Desembolso;
+import br.com.bb.intranet.supermt.pf.desembolso.repository.Desembolsos;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.view.ViewScoped;
@@ -25,9 +25,9 @@ public class ConsultaDesembolsoBean implements Serializable {
     private static final String VALORPADRAO = "A";
 
     @Inject
-    private Acessos repository;
+    private Desembolsos repository;
 
-    private List<DesembolsoCreditoPFeContatos> dados;
+    private List<Desembolso> dados;
     private String grupo;
 
     public void consultar() {
@@ -45,7 +45,7 @@ public class ConsultaDesembolsoBean implements Serializable {
 //        }
     }
 
-    public List<DesembolsoCreditoPFeContatos> getDados() {
+    public List<Desembolso> getDados() {
         return dados;
     }
 

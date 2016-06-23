@@ -35,8 +35,7 @@
 
                 <p:column headerText="Orçamento proporcional acumulado">
                     <h:outputText value="#{item.orcamentoPropostoAcumulado}" >
-                        <f:convertNumber pattern="#0.000"/>
-                        
+                        <f:convertNumber type="currency" />
                     </h:outputText>
                 </p:column>
 
